@@ -52,4 +52,19 @@ class MovieTest < ActiveSupport::TestCase
     assert_equal [ ["Christian Bale", "Bruce Wayne"] ],
                  [[Actor.find_by("id" => role["actor_id"])["name"], role["character_name"]]]
   end
+
+  test "A movie cannot be saved without a director." do
+    studio = Studio.create!("name" => "Warner Bros.")
+    movie = Movie.new("title" => "Batman Begins", "year_released" => 2005,
+                      "rated" => "PG-13", "studio_id" => studio["id"])
+    assert_not movie.save
+  end
+
+  test "Given a movie, I can find the name of its director." do
+    studio = Studio.create!("name" => "Warner Bros.")
+    movie = Movie.create!("title" => "Batman Begins", "year_released" => 2005,
+                          "rated" => "PG-13", "studio_id" => studio["id"],
+                          "director" => "Christopher Nolan")
+    assert_equal "Christopher Nolan", movie["director"]
+  end
 end
