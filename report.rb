@@ -14,7 +14,8 @@ movie_details = [
 
 movie_details.each do |title, year_released|
   Movie.create!("title" => title, "year_released" => year_released,
-                "rated" => "PG-13", "studio_id" => studio["id"])
+                "rated" => "PG-13", "studio_id" => studio["id"],
+                "director" => "Christopher Nolan")
 end
 
 cast = {
@@ -58,7 +59,7 @@ puts
 movie_details.each do |title, year_released|
   movie = Movie.find_by("title" => title, "year_released" => year_released)
   movie_studio = Studio.find_by("id" => movie["studio_id"])
-  puts "#{movie['title'].ljust(22)} #{movie['year_released'].to_s.ljust(14)} #{movie['rated'].ljust(6)} #{movie_studio['name']}"
+  puts "#{movie['title'].ljust(22)} #{movie['year_released'].to_s.ljust(14)} #{movie['rated'].ljust(6)} #{movie_studio['name']}  #{movie['director']}"
 end
 
 puts
