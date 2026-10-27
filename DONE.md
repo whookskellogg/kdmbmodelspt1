@@ -20,6 +20,8 @@ A movie must be linked to an existing studio.
 Two movies cannot have the same title and release year.
 I must be able to find a movie's studio.
 I must be able to find every cast member's name and the character they play in a movie.
+A movie cannot be saved without a director.
+Given a movie, I can find the name of its director.
 ## Actor
 An actor cannot be saved without a name.
 Two actors cannot have the same name.
