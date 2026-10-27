@@ -15,7 +15,8 @@ class StudioTest < ActiveSupport::TestCase
   test "I must be able to find all movies made by a studio." do
     studio = Studio.create!("name" => "Warner Bros.")
     movie = Movie.create!("title" => "Batman Begins", "year_released" => 2005,
-                          "rated" => "PG-13", "studio_id" => studio["id"])
+                          "rated" => "PG-13", "studio_id" => studio["id"],
+                          "director" => "Christopher Nolan")
     assert_equal [movie], Movie.where("studio_id" => studio["id"])
   end
 end

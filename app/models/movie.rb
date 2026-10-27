@@ -2,6 +2,7 @@ class Movie < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :year_released }
   validates :year_released, presence: true
   validates :rated, presence: true
+  validates :director, presence: true
   validates :studio_id, presence: true
   validate :studio_must_exist
 

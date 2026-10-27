@@ -15,7 +15,8 @@ class ActorTest < ActiveSupport::TestCase
   test "I must be able to find every movie an actor appears in." do
     studio = Studio.create!("name" => "Warner Bros.")
     movie = Movie.create!("title" => "Batman Begins", "year_released" => 2005,
-                          "rated" => "PG-13", "studio_id" => studio["id"])
+                          "rated" => "PG-13", "studio_id" => studio["id"],
+                          "director" => "Christopher Nolan")
     actor = Actor.create!("name" => "Christian Bale")
     Role.create!("movie_id" => movie["id"], "actor_id" => actor["id"], "character_name" => "Bruce Wayne")
     role = Role.where("actor_id" => actor["id"]).first
