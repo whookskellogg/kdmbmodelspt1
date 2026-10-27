@@ -16,3 +16,5 @@ After the correction, I ran bin/rails test: 19 tests, 19 assertions, 0 failures,
 
 When a new rule arrives and tests you already had go red: which ones failed, and why. Leave it
 empty until that happens.
+
+The actor’s movies, studio’s movies, movie’s studio and cast, duplicate movie, duplicate role, role’s existing actor, required character name, and role’s actor and movie lookup tests errored because their setup created movies without directors, triggering ActiveRecord::RecordInvalid before their assertions.
